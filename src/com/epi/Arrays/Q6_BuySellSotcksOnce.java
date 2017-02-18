@@ -1,7 +1,11 @@
 package com.epi.Arrays;
 
 public class Q6_BuySellSotcksOnce {
-
+	/**
+	 * Space Complexity O(1) && Time Complexity O(n)
+	 * @param arr
+	 * @return
+	 */
 	public static double maxProfit(double arr[]){
 		double max = 0;
 		double minpr = arr[0];
