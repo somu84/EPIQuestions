@@ -1,6 +1,7 @@
 package com.epi.Arrays;
 
 public class Q4_AdvanceThroughArray {
+	static int steps = 0;
 	public static boolean isSolvable(int arr[]){
 		if(arr.length == 0 || arr[0] == 0 || arr[arr.length -1] == 0)
 			return false;
@@ -17,10 +18,13 @@ public class Q4_AdvanceThroughArray {
 		boolean res = false;
 		while(j >= 1){
 			res = isSolRec(a, i+j);
+			steps +=1;
 			if(res)
 				return res;
-			if(res == false)
+			if(res == false){
+				steps -=1;
 				j--;
+			}
 		}
 		return res;
 	}
@@ -30,6 +34,7 @@ public class Q4_AdvanceThroughArray {
 		int arr2[] = {3,2,0,0,2,0,1};
 		if(isSolvable(arr1)){
 			System.out.println("arr1: Solvable");
+			System.out.println("Min Steps = "+steps);
 		}
 		else{
 			System.out.println("arr1:Nope");
