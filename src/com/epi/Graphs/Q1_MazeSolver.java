@@ -1,8 +1,11 @@
 package com.epi.Graphs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 
 class Coordinates{
 	int x;
@@ -71,5 +74,36 @@ public class Q1_MazeSolver {
 			return true;
 		return false;
 			
+	}
+	
+	//This is for the sortest path
+	public static List<Coordinates> searchMazeBFS(List<List<Color>> maze, Coordinates s, Coordinates e){
+		final int[][] SHIFT = {{0,1},{1,0},{0,-1},{-1,0}};
+		Queue<Coordinates> q = new LinkedList<Coordinates>();
+		HashMap<Coordinates, Coordinates> prev = new HashMap<Coordinates, Coordinates>();
+		maze.get(s.x).set(s.y, Color.BLACK);
+		q.add(s);
+		while(!q.isEmpty()){
+			Coordinates curr = q.poll();
+			for(int[] dir: SHIFT){
+				Coordinates next = new Coordinates(curr.x + dir[0], curr.y+dir[1]);
+				if(isFeasible(next, maze)){
+					maze.get(next.x).set(next.y, Color.BLACK);
+					q.add(next);
+					prev.put(next,curr);
+				}
+				if(next.equals(e)){
+					LinkedList<Coordinates> path = new LinkedList<Coordinates>();
+					
+					path.add(next);
+					while(curr != null){
+						path.add(0,curr);
+						curr = prev.get(curr);
+					}
+					return path;
+				}
+			}
+		}
+		return null;
 	}
 }
