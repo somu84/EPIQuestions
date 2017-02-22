@@ -31,6 +31,9 @@ public class DisjointSets {
 		Node n2 = map.get(d2);
 		Node p1 = findSet(n1);
 		Node p2 = findSet(n2);
+		//check if they are part of same set
+		if(p1.data == p2.data)
+			return;
 		if(p1.rank >= p2.rank){
 			p1.rank = (p1.rank == p2.rank)?p1.rank+1:p1.rank;
 			p2.parent = p1;
