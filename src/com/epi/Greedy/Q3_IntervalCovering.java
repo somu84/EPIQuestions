@@ -14,7 +14,7 @@ class Interval{
 		this.end = e;
 	}
 }
-public class Q3_IntervalCovering {
+public class q3_IntervalCovering {
 
 	public static List<Integer> getChekupTime(List<Interval> times){
 		Collections.sort(times, new Comparator<Interval>(){
