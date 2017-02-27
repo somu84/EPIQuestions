@@ -73,4 +73,4 @@ public class q6_WaterTrap {
 		System.out.println("Start pos "+res.st+" End pos "+res.ed);
 	}
 
-}
+} 
