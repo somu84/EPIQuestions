@@ -41,10 +41,8 @@ public class Solution {
     static int result = 0;
     public static int getMaxRem(NodeG curr){
         int i = 1;
-       // int localCnt = 0;
         for(NodeG child: curr.adj){
         	int localRes = getMaxRem(child);
-         //   localCnt = i;
             if(localRes % 2 == 0)
             	result += 1;
             i+=localRes;
