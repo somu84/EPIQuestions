@@ -1,5 +1,7 @@
 package com.epi.DynamicProg;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Q11_WordWrap {
@@ -64,6 +66,41 @@ public class Q11_WordWrap {
 	
 	//Space optimized solution
 	public static int minWrap(List<String> words, int width){
-		return 0;
+		int[] minMess = new int[words.size()];
+		Arrays.fill(minMess, Integer.MAX_VALUE);
+		int numBlanks = width - words.get(0).length();
+		minMess[0] = numBlanks * numBlanks;
+		
+		for(int i = 1; i<words.size(); i++){
+			numBlanks = width - words.get(i).length();
+			minMess[i] = minMess[i-1]+numBlanks * numBlanks;
+			for(int j=i-1;j>=0;j--){
+				
+				numBlanks -=(words.get(j).length()+1);
+				if(numBlanks<0){
+					break;
+				}
+				int firstJMess = j-1<0?0:minMess[j-1];
+				int currMess = numBlanks * numBlanks;
+				minMess[i] = Math.min(minMess[i], firstJMess+currMess);
+			}
+		}
+		return minMess[words.size()-1]; 
 	}
+	
+	public static void main(String [] args){
+		List<String> words = new ArrayList<>();
+		words.add("Tushar");
+		words.add("Roy");
+		words.add("likes");
+		words.add("to");
+		words.add("write");
+		words.add("code");
+		words.add("in");
+		words.add("his");
+		words.add("free");
+		words.add("time");
+		System.out.println(minWrap(words, 12));
+	}
+	
 }
