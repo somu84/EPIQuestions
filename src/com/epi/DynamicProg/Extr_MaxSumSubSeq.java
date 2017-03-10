@@ -22,17 +22,21 @@ public class Extr_MaxSumSubSeq {
 	}
 	
 	public static int maxSumNonContig(int[] arr){
-		int maxSum = 0;
-		for(int i=0; i< arr.length; i++){
-			if(arr[i] <= 0) continue;
-			maxSum +=arr[i];
+		int incl = 0, excl = 0;
+		for(int i=0; i<arr.length; i++){
+			incl += arr[i];
+			//excl = Math.max(excl, excl-arr[i]);
+			int t = excl;
+			excl = incl;
+			incl = t;
 		}
-		return maxSum;
+		return Math.max(excl, incl);
 	}
 
 	public static void main(String[] args){
 		int[] arr = {-6, 2, -4, 1, 3, -1, 5, -1};
 		System.out.println(maxSumContig(arr));
-		System.out.println(maxSumNonContig(arr));
+		int[] arr2 = {5, 5, 10, 100, 10, 5};
+		System.out.println(maxSumNonContig(arr2));
 	}
 }
