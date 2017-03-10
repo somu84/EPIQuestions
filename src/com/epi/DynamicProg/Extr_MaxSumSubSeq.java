@@ -24,8 +24,7 @@ public class Extr_MaxSumSubSeq {
 	public static int maxSumNonContig(int[] arr){
 		int incl = 0, excl = 0;
 		for(int i=0; i<arr.length; i++){
-			incl += arr[i];
-			//excl = Math.max(excl, excl-arr[i]);
+			incl += arr[i];			
 			int t = excl;
 			excl = incl;
 			incl = t;
