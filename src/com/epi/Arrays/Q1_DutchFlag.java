@@ -1,5 +1,7 @@
 package com.epi.Arrays;
 
+import java.util.Collections;
+
 public class Q1_DutchFlag {
 	/**
 	 * The algorithm takes O(1) space and O(n) time.
@@ -33,6 +35,31 @@ public class Q1_DutchFlag {
 		arr[i] = arr[j];
 		arr[j] = t;
 	}
+	
+	public static void main(String[] args){
+		int[] arr = {0,1,2,3,0,2,1,4,2};
+		dutchFlag(arr, 2);
+		for(int i: arr){
+			System.out.print(i+",");
+		}
+	}
+	
+	public static void dutchFlag(int[] arr, int index){
+		int sm = 0;	
+		int c = arr[index];
+		for(int i=0; i<arr.length; i++){
+			if(arr[i]<c){
+				swap(arr, sm++, i);
+			}
+		}
+		int l = arr.length - 1;
+		for(int i=arr.length-1; i>=0; i--){
+			if(arr[i]>c){
+				swap(arr, l--, i);
+			}
+		}
+	}
+	
 	
 
 }
