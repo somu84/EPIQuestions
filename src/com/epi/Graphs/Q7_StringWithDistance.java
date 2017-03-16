@@ -48,7 +48,6 @@ public class Q7_StringWithDistance {
 	public static List<String> transForm1(Set<String> dict, String s, String e){
 		Queue<String> q = new LinkedList<>();
 		Map<String,String>prev = new HashMap<>();
-		//List<String>visited = new LinkedList<>();
 		q.add(s);
 		while(!q.isEmpty()){
 			String str = q.poll();
