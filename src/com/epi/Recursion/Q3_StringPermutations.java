@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Q3_AllPermutations {
+public class Q3_StringPermutations {
 	public static List<String> getPermutations(String arr){
 		List<String> result = new ArrayList<>();
 		for(int i = 0; i<arr.length(); i++){
@@ -29,6 +29,7 @@ public class Q3_AllPermutations {
 		}
 		for(int i=level;i<str.length();i++){
 			callStack(strSwap(str,level,i),result, level+1);
+			
 		}
 	}
 	
