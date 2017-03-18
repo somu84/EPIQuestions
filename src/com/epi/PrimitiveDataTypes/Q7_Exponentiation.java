@@ -18,4 +18,9 @@ public class Q7_Exponentiation {
 		return res;
 	}
 	
+	public static void main(String[] args){
+		int i = 6;
+		System.out.println((i&1));
+	}
+	
 }

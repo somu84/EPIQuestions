@@ -1,15 +1,16 @@
 package com.epi.LinkedList;
 
-class Node{
-	int data;
-	Node next;
-	
-	Node(int d1, Node n){
-		this.data = d1;
-		this.next = n;
-	}
-}
+
 public class Q1_MergeLists {
+	static class Node{
+		int data;
+		Node next;
+		
+		Node(int d1, Node n){
+			this.data = d1;
+			this.next = n;
+		}
+	}
 	public static Node merge(Node l1, Node l2){
 		Node dummy = new Node(0, null);
 		Node current = dummy;
