@@ -50,9 +50,7 @@ public class Q2_ReverseAList {
 		Node n3 = new Node(3, null);
 		n2.insert(n3);
 		n1.insert(n2);
-		//reverse(n1);
 		Node t = reverseList(n1);
-		//Node t = n1;
 		while(t != null){
 			System.out.print(t.data+" ");
 			t = t.next;
