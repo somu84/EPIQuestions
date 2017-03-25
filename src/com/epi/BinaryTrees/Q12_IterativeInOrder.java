@@ -22,7 +22,6 @@ public class Q12_IterativeInOrder {
 			}
 			
 		}
-		
 	}
 
 }
