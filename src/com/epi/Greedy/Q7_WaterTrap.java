@@ -11,7 +11,7 @@ class Res{
 		this.ed = j;
 	}
 }
-public class q6_WaterTrap {
+public class Q7_WaterTrap {
 	public static Res maxWater(List<Integer> arr){
 		int i = 0;
 		int j = arr.size()-1;

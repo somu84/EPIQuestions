@@ -2,12 +2,15 @@ package CommonExamples;
 
 public class IncreasingDecreasingArr {
 	public static int getMax(int[] arr, int r, int l){
-	    if(arr.length == 0){
+	    //Null Check
+		if(arr.length == 0){
 	        return -1;
 	    }
+	    //Base Case 1
 	    if(l==r){
 	        return arr[r];
 	    }
+	    //Base Case 2
 	    if(r-l == 1){
 	        return Math.max(arr[l], arr[r]);
 	    }
