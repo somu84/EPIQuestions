@@ -3,6 +3,12 @@ package com.epi.Recursion;
 import java.util.*;
 
 public class Q4_GeneratePowerSet {
+	/**
+	 * Time Complexity: O(2^n)
+	 * Space Complexity: O(2^n)
+	 * @param input
+	 * @return
+	 */
 	public static List<List<Integer>> generatePowerSet(List<Integer> input){
 		List<List<Integer>> powerSet = new ArrayList<>();
 		getPowerSet(input, 0, new ArrayList<Integer>(), powerSet);
