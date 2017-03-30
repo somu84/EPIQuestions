@@ -67,7 +67,7 @@ public class Q33_MaxArray {
 		int maxArea = 0;
 		int i = 0;
 		for(i=0; i<arr.length; i++){
-			if(arr[i] >= st.peekFirst()|| st.isEmpty()){
+			if(st.isEmpty() || arr[i] >= st.peekFirst()){
 				st.push(i++);
 			}
 			else{
@@ -99,6 +99,7 @@ public class Q33_MaxArray {
 	public static void main(String[] args){
 		int[][]arr = {{0,0,1,1,1},{1,0,1,1,1},{0,1,1,1,1},{1,0,1,1,1}};
 		System.out.println("Max Sub Square: "+maxSubSquare(arr));
+		System.out.println("Max Sub Rectangle: "+maxSubRectangle(arr));
 		
 	}
 
