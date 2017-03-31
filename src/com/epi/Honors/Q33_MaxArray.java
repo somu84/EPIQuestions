@@ -66,8 +66,8 @@ public class Q33_MaxArray {
 		int area = 0;
 		int maxArea = 0;
 		int i = 0;
-		for(i=0; i<arr.length; i++){
-			if(st.isEmpty() || arr[i] >= st.peekFirst()){
+		for(i=0; i<arr.length;){
+			if(st.isEmpty() || arr[i] >= arr[st.peekFirst()]){
 				st.push(i++);
 			}
 			else{
