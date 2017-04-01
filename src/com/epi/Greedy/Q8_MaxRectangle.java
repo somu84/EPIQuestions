@@ -10,7 +10,7 @@ public class Q8_MaxRectangle {
 		int maxArea = 0;
 		int i= 0;
 		for(i=0; i<arr.length;){
-			if(arr[i] >= stack.peekFirst() || stack.isEmpty()){
+			if(arr[i] >= arr[stack.peekFirst()] || stack.isEmpty()){
 				stack.offerFirst(i++);
 			}
 			else{

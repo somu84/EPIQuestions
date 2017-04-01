@@ -34,6 +34,7 @@ public class Q2_BooleanMatirx {
 					next.add(newC);
 				}
 			}
+			next.remove();
 		}
 	}
 

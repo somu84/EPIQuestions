@@ -23,7 +23,7 @@ public class Q3_EnclosedRegion {
 		List<List<Boolean>> visited = new ArrayList<>(board.size());
 		//Initialize
 		for(int i=0; i<board.size(); i++){
-			visited.add(new ArrayList(Collections.nCopies(board.get(i).size(), false)));
+			visited.add(new ArrayList<Boolean>(Collections.nCopies(board.get(i).size(), false)));
 		}
 		
 		for(int i=0; i<board.size(); i++){
