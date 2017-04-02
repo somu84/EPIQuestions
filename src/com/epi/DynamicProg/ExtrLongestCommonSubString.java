@@ -23,7 +23,7 @@ public class ExtrLongestCommonSubString {
 	}
 	
 	public static void main(String[] args){
-		String res = longestCommonSubString("abcdaf", "zehgh");
+		String res = longestCommonSubString("abcdaf", "aaaaaaadaffdfdsfsdf");
 		System.out.println(res);
 	}
 }
