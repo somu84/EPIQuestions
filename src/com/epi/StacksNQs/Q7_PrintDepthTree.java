@@ -10,6 +10,10 @@ public class Q7_PrintDepthTree {
 		Tree left;
 		Tree right;
 		int data;
+		
+		Tree(int data){
+			this.data = data;
+		}
 	}
 	
 	public static List<List<Integer>> getDepthTree(Tree root){
@@ -34,4 +38,33 @@ public class Q7_PrintDepthTree {
 		return result;
 	}
 
+	public static List<Integer> levelOrder(Tree root){
+		Queue<Tree> q = new LinkedList<>();
+		q.offer(root);
+		List<Integer> res = new ArrayList<>();
+		while(!q.isEmpty()){
+			Tree curr = q.poll();
+			
+			if(curr == null){
+				continue;
+			}
+			res.add(curr.data);
+			if(curr.left != null) q.offer(curr.left);
+			if(curr.right != null) q.offer(curr.right);
+		}
+		return res;
+	}
+	
+	public static void main(String[] args){
+		Tree root = new Tree(5);
+		root.left = new Tree(4);
+		root.right = new Tree(3);
+		root.left.left = new Tree(2);
+		root.left.right = new Tree(1);
+		root.right.left = new Tree(7);
+		root.right.right = new Tree(8);
+		
+		List<Integer> res = levelOrder(root);
+		System.out.println(res);
+	}
 }

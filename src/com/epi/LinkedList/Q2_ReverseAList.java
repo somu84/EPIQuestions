@@ -64,6 +64,7 @@ public class Q2_ReverseAList {
 		System.out.println(root.data);
 	}
 	
+	
 	public static Node reverseList(Node root){
 		Node curr = root;
 		Node prev = null;
