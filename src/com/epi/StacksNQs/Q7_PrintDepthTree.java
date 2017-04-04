@@ -44,7 +44,6 @@ public class Q7_PrintDepthTree {
 		List<Integer> res = new ArrayList<>();
 		while(!q.isEmpty()){
 			Tree curr = q.poll();
-			
 			if(curr == null){
 				continue;
 			}
