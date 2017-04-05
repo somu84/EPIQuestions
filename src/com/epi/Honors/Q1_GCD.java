@@ -22,4 +22,28 @@ public class Q1_GCD {
 		}
 	}
 
+	//Basic GCD TimeComplexity: O(log min(x, y))
+	public static int GCD(int x, int y){
+		if(x == 0)
+			return y;
+		return GCD(y%x, x);
+	}
+	
+	//Without Recursion
+	public static int GCD_2(int x, int y){
+		if(x == 0){
+			return y;
+		}
+		while(x > 0 && y > 0){
+			int t = x;
+			x = y%x;
+			y = t;
+			
+		}
+		return y;
+	}
+	public static void main(String[] args){
+		System.out.println(GCD(16, 24));
+		System.out.println(GCD_2(16, 24));
+	}
 }
