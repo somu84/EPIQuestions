@@ -30,7 +30,7 @@ public class PerfMon {
 	            String t = stack.pop();
 	            if(t.equals(fun)){
 	                   currTime = currTime + time - lastTime;
-	                   return currTime;
+	                  // return currTime;
 	            }
 	            else{
 	                if(stack.peek().equals(fun)){
@@ -39,7 +39,7 @@ public class PerfMon {
 	            }
 	        }        
 	    }
-	    return -1;
+	    return currTime;
 	}
 	
 	public static int getTime(String str){
@@ -55,7 +55,13 @@ public class PerfMon {
 		str.append("31 start f3\n");
 		str.append("32 end f3\n");
 		str.append("33 end f2\n");
-		str.append("40 end fun\n");
+		str.append("40 start fun\n");
+		str.append("50 start fun\n");
+		str.append("60 start fun\n");
+		str.append("70 end fun\n");
+		str.append("80 end fun\n");
+		str.append("90 end fun\n");
+		str.append("100 end fun\n");
 		
 		System.out.println(getTime(str.toString(), "fun"));
 		
