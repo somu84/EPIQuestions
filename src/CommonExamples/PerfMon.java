@@ -7,7 +7,8 @@ public class PerfMon {
 		if(log == null || log.length() == 0){
 			return -1;
 		}
-	    Deque<String> stack = new LinkedList<>();
+	    //Deque<String> stack = new LinkedList<>();
+		Stack<String> stack = new Stack<>();
 	    String[] arr = log.split("\n");
 	    int currTime = 0;
 	    int lastTime = 0;
@@ -55,14 +56,8 @@ public class PerfMon {
 		str.append("31 start f3\n");
 		str.append("32 end f3\n");
 		str.append("33 end f2\n");
-		str.append("40 start fun\n");
-		str.append("50 start fun\n");
-		str.append("60 start fun\n");
 		str.append("70 end fun\n");
-		str.append("80 end fun\n");
-		str.append("90 end fun\n");
-		str.append("100 end fun\n");
-		
+
 		System.out.println(getTime(str.toString(), "fun"));
 		
 	}

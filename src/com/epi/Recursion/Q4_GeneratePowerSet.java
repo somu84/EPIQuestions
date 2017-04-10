@@ -17,7 +17,7 @@ public class Q4_GeneratePowerSet {
 	
 	private static void getPowerSet(List<Integer>input, int toBeSelected, List<Integer> selectedSoFar, List<List<Integer>> powerSet){
 		if(toBeSelected == input.size()){
-			powerSet.add(selectedSoFar);
+			powerSet.add(new ArrayList<>(selectedSoFar));
 			return;
 		}
 		//Consider the to be selected
@@ -28,4 +28,11 @@ public class Q4_GeneratePowerSet {
 		getPowerSet(input, toBeSelected+1, selectedSoFar, powerSet);
 	}
 
+	public static void main(String[] args){
+		List<Integer> arr = new ArrayList<>();
+		arr.add(1);
+		arr.add(2);
+		arr.add(3);
+		System.out.println(generatePowerSet(arr));
+	}
 }
