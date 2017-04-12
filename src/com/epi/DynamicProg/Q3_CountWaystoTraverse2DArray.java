@@ -31,7 +31,7 @@ public class Q3_CountWaystoTraverse2DArray {
 	//Variant find the min cost path
 	public static int minCostPath(int[][] arr){
 		int[][]temp = new int[arr.length][arr[0].length];
-		temp[0][0] = 1;
+		temp[0][0] = arr[0][0];
 		for(int i=1; i<temp.length;i++){
 			temp[i][0] = temp[i-1][0]+arr[i][0];
 		}
@@ -57,7 +57,7 @@ public class Q3_CountWaystoTraverse2DArray {
 		System.out.print("Min Cost Path: "+ arr[i][j]+"<-");
 		while(true){
 			if(i==0 && j==0){
-				System.out.println(arr[i][j]);
+				System.out.println();
 				break;
 			}
 			if(i != 0 && j!= 0){
@@ -75,7 +75,7 @@ public class Q3_CountWaystoTraverse2DArray {
 				j=j-1;
 			}
 			else{
-				System.out.print(arr[i-1][j]+"<-");
+				System.out.print(arr[i-1][j]);
 				i=i-1;
 			}
 			

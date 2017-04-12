@@ -25,9 +25,7 @@ public class Extr_MaxSumSubSeq {
 		int incl = 0, excl = 0;
 		for(int i=0; i<arr.length; i++){
 			incl += arr[i];			
-			int t = excl;
 			excl = incl;
-			incl = t;
 		}
 		return Math.max(excl, incl);
 	}
