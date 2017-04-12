@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Q3_FindKLargest {
 	static class Tree<T> {
-		Tree right;
-		Tree left;
+		Tree<T> right;
+		Tree<T> left;
 		T data;
 		
 		Tree(){
