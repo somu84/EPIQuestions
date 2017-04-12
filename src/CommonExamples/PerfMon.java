@@ -7,7 +7,6 @@ public class PerfMon {
 		if(log == null || log.length() == 0){
 			return -1;
 		}
-	    //Deque<String> stack = new LinkedList<>();
 		Stack<String> stack = new Stack<>();
 	    String[] arr = log.split("\n");
 	    int currTime = 0;
