@@ -33,6 +33,29 @@ public class Q4_GeneratePowerSet {
 		arr.add(1);
 		arr.add(2);
 		arr.add(3);
+		arr.add(4);
 		System.out.println(generatePowerSet(arr));
+		System.out.println(getSetOfSizeK(arr, 2));
+	}
+	
+	public static List<Set<Integer>> getSetOfSizeK(List<Integer> arr, int k){
+		if(arr == null || arr.size() == 0){
+			return null;
+		}
+		List<Set<Integer>> res = new ArrayList<>();
+		getSubset(arr, k, new HashSet<Integer>(), res, 0);
+		return res;
+	}
+	
+	private static void getSubset(List<Integer> arr, int k, HashSet<Integer> set, List<Set<Integer>> res, int idx){
+		if(set.size() == k){
+			res.add(new HashSet<>(set));
+			return;
+		}
+		if(idx == arr.size()) return;
+		set.add(arr.get(idx));
+		getSubset(arr, k, set, res, idx+1);
+		set.remove(arr.get(idx));
+		getSubset(arr, k, set, res, idx+1);
 	}
 }

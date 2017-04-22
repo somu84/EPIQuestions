@@ -21,6 +21,8 @@ import java.util.Set;
 public class Q3_StringPermutations {
 	public static List<String> getPermutations(String arr){
 		List<String> result = new ArrayList<>();
+		//if(arr == null) return result;
+		if(arr == null || arr.length() == 0) return result;
 		//This is the first level, where we only swap the first character, with the rest
 		//and make recursive calls for resulting string. 
 		for(int i = 0; i<arr.length(); i++){
@@ -65,7 +67,9 @@ public class Q3_StringPermutations {
 	}
 	
 	public static void main(String[] args){
-		List<String> perms = getPermutations1("abc");
+		List<String> perms = getPermutations(null);
+		if(perms.isEmpty() || perms == null)
+			System.out.println("Empty String");
 		for(String p1: perms){
 			System.out.println(p1);
 		}
