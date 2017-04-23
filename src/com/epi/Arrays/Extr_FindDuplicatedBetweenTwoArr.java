@@ -3,6 +3,9 @@ package com.epi.Arrays;
 import java.util.*;
 
 public class Extr_FindDuplicatedBetweenTwoArr {
+	//Used BitSet to reduce the space required.
+	//TimeComplexity : O(n+m)
+	//SpaceComplexity: O
 	public static List<Integer> getDuplicates(int[] arr1, int[] arr2){
 		List<Integer> res = new ArrayList<>();
 		if(arr1.length == 0 || arr2.length == 0) return res;
