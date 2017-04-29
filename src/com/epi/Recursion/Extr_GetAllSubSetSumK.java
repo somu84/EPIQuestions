@@ -14,6 +14,7 @@ public class Extr_GetAllSubSetSumK {
 		List<List<Integer>> res = new ArrayList<>();
 		if(arr == null || arr.length == 0) return res;
 		getSubSet(arr, target, 0, new ArrayList<Integer>(), res);
+		
 		return res;
 	}
 	

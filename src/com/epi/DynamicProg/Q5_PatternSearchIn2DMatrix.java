@@ -45,4 +45,45 @@ public class Q5_PatternSearchIn2DMatrix {
 		failedAtt.add(new Attempt(x,y,offset));
 		return false;
 	}
+	
+	//Using DFS
+	public static boolean search(int[][] arr, int[] num){
+		if(arr == null || arr.length == 0)
+			return false;
+		for(int i = 0; i<arr.length; i++){
+			for(int j = 0; j < arr[i].length; j++){
+				if(arr[i][j] == num[0])
+					if(DFS(arr, num, i, j, 1))
+						return true;
+			}
+		}
+		return false;
+	}
+	
+	private static boolean DFS(int[][]arr, int[] num, int i, int j, int idx){
+		if(idx == num.length) return true;
+		
+		final int[][] SHIFT = {{0,1}, {0,-1}, {-1,0}, {1,0}};
+		for(int[] l : SHIFT){
+			if(isValid(arr, i+l[0], j+l[1])){
+				if(arr[i+l[0]][j+l[1]] == num[idx]){
+					if(DFS(arr, num, i+l[0], j+l[1], idx+1))
+						return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private static boolean isValid(int[][]arr, int i, int j){
+		if(i < 0 || j < 0 || i >= arr.length || j >= arr[i].length)
+			return false;
+		return true;
+	}
+	
+	public static void main(String[] args){
+		int[][] arr = {{1, 2, 3},{3, 4, 5}, {5, 6, 7}};
+		int [] num = {1, 3, 4, 7};
+		System.out.println(search(arr, num));
+	}
 }
