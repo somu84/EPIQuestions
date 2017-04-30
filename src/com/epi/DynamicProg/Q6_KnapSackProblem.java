@@ -1,5 +1,7 @@
 package com.epi.DynamicProg;
 
+import java.util.*;
+
 public class Q6_KnapSackProblem {
 /**
  * The basic principle is 
@@ -75,5 +77,69 @@ public class Q6_KnapSackProblem {
 			}
 		}
 		return K[W];
+	}
+	
+	static class Item{
+		int totalW;
+		int remI;
+		Item(int w, int i){
+			totalW = w;
+			remI = i;
+		}
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + remI;
+			result = prime * result + totalW;
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Item other = (Item) obj;
+			if (remI != other.remI)
+				return false;
+			if (totalW != other.totalW)
+				return false;
+			return true;
+		}
+		
+	}
+	
+	public static int KS(int[] c, int[] w, int TW){
+		if(c == null || w == null || c.length == 0 || w.length == 0)
+			return 0;
+		HashMap<Item, Integer> map = new HashMap<>();
+		return KS(c, w, TW, map, c.length - 1);
+	}
+	
+	private static int KS(int[] c, int[] w, int TW, HashMap<Item, Integer> map, int iR){
+		if(iR < 0 || TW <= 0) return 0;
+		Item i = new Item(TW, iR);
+		if(!map.containsKey(i)){
+			int num = c.length - 1 - iR;
+			int v;
+			if(w[num] <= TW){
+				v  = Math.max(c[num]+KS(c, w, TW-w[num], map, iR-1), 
+						KS(c, w, TW, map, iR-1));
+			}
+			else{
+				v = KS(c, w, TW, map, iR-1);
+			}
+			map.put(i, v);
+		}
+		return map.get(i);
+	}
+	
+	public static void main(String[] args){
+		int[]w = {2, 2, 4, 5};
+		int[]c = {2, 4, 6, 9};
+		System.out.println(KS(c, w, 8));
 	}
 }
