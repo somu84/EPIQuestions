@@ -1,5 +1,7 @@
 package com.epi.DynamicProg;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Q7_WordBreakProblem {
@@ -94,5 +96,48 @@ public class Q7_WordBreakProblem {
 			i=k;
 		}
 		return buff.toString();
+	}
+	
+	/**
+	 * Word break problem using DP
+	 * Time Complexity: O(n*w)
+	 * Where W is size of 
+	 * @param str
+	 * @param dict
+	 * @param map
+	 * @return
+	 */
+	public static String getWords(String str, Set<String> dict, HashMap<String, String> map){
+		if(str == null || str.length() == 0)
+			return str;
+		if(dict.contains(str))
+			return str;
+		if(map.containsKey(str)){
+			return map.get(str);
+		}
+		int len = str.length();
+		for(int i = 1; i<len; i++){
+			String pref = str.substring(0, i);
+			if(dict.contains(pref)){
+				String suff = getWords(str.substring(i, len), dict, map);
+				if(suff != null){
+					map.put(str, pref+" "+suff);
+					return pref+" "+suff;
+				}
+			}
+		}
+		return null;
+	}
+	
+	
+	public static void main(String[] args){
+		Set<String> dict = new HashSet<>();
+		dict.add("geek");
+		dict.add("geeks");
+		dict.add("for");
+		dict.add("god");
+		dict.add("is");
+		HashMap<String, String> map = new HashMap<>();
+		System.out.println(getWords("godisgeek", dict, map));
 	}
 }

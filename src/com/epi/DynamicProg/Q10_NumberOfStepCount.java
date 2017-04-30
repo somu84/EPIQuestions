@@ -8,33 +8,19 @@ public class Q10_NumberOfStepCount {
 	 * @param step
 	 * @return
 	 */
-	public static int numberOfSolutions(int n, int step){
-		int[] temp = new int[n+1];
-		temp[0] = 1;
-		for(int i=1;i<=step;i++){
-			for(int j=1;j<=n;j++){
-				if(j >= i)
-					temp[j] += temp[j-i];
-			}
-		}
-		return temp[n];
-		
+	public static int getWays(int n, int k){
+		int[]memo = new int[n+1];
+		return ways(n, k, memo);
 	}
 	
-	//Recursive solution
-	public static int numberOfSolutionsRec(int n, int k){
-		return compute(n, k, new int[n+1]);
-	}
-	
-	private static int compute(int top, int k, int[] ways){
-		if(top<=1)
-			return 1;
-		if(ways[top] == 0){
-			for(int i=1; i<=k && top-i>=0; i++){
-				ways[top] +=compute(top-i,k,ways);
+	private static int ways(int n, int k, int[] memo){
+		if(n <= 0) return 1;
+		if(memo[n] == 0){
+			for(int i = 1; i<= k && n - i >= 0; i++){
+				memo[n] += ways(n-i, k, memo);
 			}
 		}
-		return ways[top];
+		return memo[n];
 	}
 
 }
