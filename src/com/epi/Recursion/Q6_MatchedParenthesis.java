@@ -24,7 +24,30 @@ public class Q6_MatchedParenthesis {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(getBrace(3));
+		System.out.println(getBraces(3));
+	}
+	
+	public static List<String> getBraces(int n){
+		List<String> res = new ArrayList<>();
+		if( n == 0) return res;
+		char[] temp  = new char[2*n];
+		getBraces(n, n, 0, temp, res);
+		return res;
+	}
+	
+	public static void getBraces(int lc, int rc, int idx, char[] temp, List<String> res){
+		if(rc == 0 && lc == 0){
+			res.add(new String(temp));
+			return;
+		}
+		if(lc > 0){
+			temp[idx] = '(';
+			getBraces(lc-1, rc, idx+1, temp, res);
+		}
+		if(rc > lc){
+			temp[idx] = ')';
+			getBraces(lc, rc-1, idx+1, temp, res);
+		}
 	}
 
 }
