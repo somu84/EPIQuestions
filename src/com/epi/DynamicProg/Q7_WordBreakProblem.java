@@ -99,9 +99,9 @@ public class Q7_WordBreakProblem {
 	}
 	
 	/**
+	 * http://thenoisychannel.com/2011/08/08/retiring-a-great-interview-problem
 	 * Word break problem using DP
-	 * Time Complexity: O(n*w)
-	 * Where W is size of 
+	 * Time Complexity: O(n^2) 
 	 * @param str
 	 * @param dict
 	 * @param map
