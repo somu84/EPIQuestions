@@ -8,6 +8,7 @@ public class Q2_CheckIfLetterPossible {
 		Map<Character, Integer> wC = new HashMap<>();
 		for(int i=0; i<mag.length(); i++){
 			if(wC.containsKey(mag.charAt(i))){
+				
 				wC.put(mag.charAt(i), wC.get(mag.charAt(i))+1);
 			}else{
 				wC.put(mag.charAt(i), 1);
