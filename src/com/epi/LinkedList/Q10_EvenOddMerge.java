@@ -18,7 +18,6 @@ public class Q10_EvenOddMerge {
 		Node evenHead = e;
 		Node oddHead = o;
 		while(e.next != null && e.next.next != null){
-			o = e.next;
 			e.next = e.next.next;
 			o.next = o.next.next;
 			e = e.next;
