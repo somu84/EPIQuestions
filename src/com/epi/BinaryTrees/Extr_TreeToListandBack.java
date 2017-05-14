@@ -58,7 +58,7 @@ public class Extr_TreeToListandBack {
 		root.left = new Tree(3);
 		root.right = new Tree(2);
 		root.left.left = new Tree(1);
-		root.left.right = new Tree(0);
+		//root.left.right = new Tree(0);
 		root.right.left = new Tree(6);
 		root.right.right = new Tree(1);
 		List<Integer> res = getList(root);
