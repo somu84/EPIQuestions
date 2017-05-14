@@ -18,16 +18,34 @@ public class Q5_DuplicatesInSortedArr {
 	}
 	
 	public static void main(String[] args){
-		int[] arr = {2,3,5,5,7,11,11,11,13};
+		int[] arr = {5000, 5000, 5000};
 		List<Integer> l = new ArrayList<>();
 		for(int i:arr){
 			l.add(i);
 		}
-		filterDups(l);
+		//filterDups(l);
+		int a = removeDuplicates(l);
 		for(int i: l ){
 			System.out.print(i+" ");
 		}
 		
+	}
+	
+	public static int removeDuplicates(List<Integer> a) {
+	    int p = 0;
+	    for(int i = 1; i<a.size(); i++){
+	        if(!a.get(p).equals(a.get(i))){
+	            a.set(p+1, a.get(i));
+	            p++;
+	        }
+	    }
+	    int n = p+1;
+	    int len = a.size();
+	    while(n < len){
+	        a.remove(a.size()-1);
+	        n++;
+	    }
+	    return a.size();
 	}
 
 }
