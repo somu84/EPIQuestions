@@ -1,6 +1,5 @@
 package com.epi.LinkedList;
 
-import com.epi.LinkedList.Q2_ReverseAList.Node;
 
 public class Q11_ListIsPalindrome {
 	static class Node{
@@ -49,7 +48,7 @@ public class Q11_ListIsPalindrome {
 		n.next = new Node(2);
 		n.next.next = new Node(2);
 		n.next.next.next = new Node(3);
-		n.next.next.next.next = new Node(4);
+		n.next.next.next.next = new Node(2);
 		n.next.next.next.next.next = new Node(2);
 		n.next.next.next.next.next.next = new Node(1);
 		
