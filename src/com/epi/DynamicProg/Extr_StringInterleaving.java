@@ -5,6 +5,17 @@ public class Extr_StringInterleaving {
 	    return check(a, 0, b, 0, c, 0);
 	}
 	
+	/**
+	 * Time Complexity is O(2^n)
+	 * Space Complexity is O(1)
+	 * @param s1
+	 * @param i1
+	 * @param s2
+	 * @param i2
+	 * @param s3
+	 * @param i3
+	 * @return
+	 */
 	public static int check(String s1, int i1, String s2, int i2, String s3, int i3){
 	    if(i3 == s3.length() && i1 == s1.length() && i2 == s2.length())
 	        return 1;
