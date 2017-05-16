@@ -60,6 +60,32 @@ public class Q17_SpiralForm {
 		return res;
 	}
 	
+	public static int[][] spiral2(int n){
+		int c = 1;
+		int[][]arr = new int[n][n];
+		int top = 0, bottom = n-1;
+		int left = 0, right = n-1;
+		while(c < n*n){
+			for(int j = left; j<= right; j++){
+				arr[top][j] = c++;
+			}
+			top++;
+			for(int j = top; j<= bottom; j++){
+				arr[j][right] = c++;
+			}
+			right--;
+			for(int j = right; j>=left; j--){
+				arr[bottom][j]=c++;
+			}
+			bottom--;
+			for(int j = bottom; j>=top; j--){
+				arr[j][left]=c++;
+			}
+			left++;
+		}
+		return arr;
+	}
+	
 	public static void main(String[]args){
 		int[][]arr = {{1,2,3,4},
 				      {5,6,7,8},
@@ -68,5 +94,12 @@ public class Q17_SpiralForm {
 				      {17,18,19,20},
 				      {21,22,23,24}};
 		System.out.println(spiralForm(arr));
+		int[][]res = spiral2(4);
+		for(int[] l : res){
+			for(int i: l){
+				System.out.print(i+"       ");
+			}
+			System.out.println();
+		}
 	}
 }
