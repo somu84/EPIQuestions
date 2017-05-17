@@ -12,16 +12,18 @@ public class Extr_ReverseDLL {
 	}
 	
 	public static Node reverse(Node head){
-		Node temp = head;
-	    Node newHead = head;
-	    while (temp != null) {
-	        Node prev = temp.prev;
-	        temp.prev = temp.next;
-	        temp.next = prev;
-	        newHead = temp;
-	        temp = temp.prev;
-	    }
-	    return newHead;
+		if(head == null) return null;
+		Node nH = null;
+		Node t = null;
+		Node c = head;
+		while(c != null){
+			t = c.next;
+			c.next = c.prev;
+			c.prev = t;
+			nH = c;
+			c = t;
+		}
+		return nH;
 	}
 	
 	public static void main(String[] args){
