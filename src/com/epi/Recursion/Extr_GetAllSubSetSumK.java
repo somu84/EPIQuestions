@@ -19,7 +19,7 @@ public class Extr_GetAllSubSetSumK {
 	}
 	
 	private static void getSubSet(int[]arr, int t, int idx, List<Integer>temp, List<List<Integer>> res){
-		if(idx > arr.length -1){
+		if(idx == arr.length){
 			if(sum(temp) == t){
 				res.add(new ArrayList<Integer>(temp));
 			}
